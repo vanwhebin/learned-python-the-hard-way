@@ -25,7 +25,7 @@ SECRET_KEY = 'x^x2@ctdgh=0l9z$37-k$anwdr_ckode8unvn_f5*&i9!#f_6f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -122,3 +123,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # new created for url path
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# 20180902
+# WhiteNoise comes with a storage backend which automatically takes care of compressing your files and creating unique names for each version 
+# so they can safely be cached forever. To use it, just add this to your settings.py
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
